@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond the Fog: baixar</title>
+<meta name="description" content="Baixe Beyond the Fog, um jogo idle das grandes navegações para Windows.">
+<link rel="icon" href="img/icone.png">
+<!-- Página de download (pedido do Lucas, 17/11/2026: "não está dando para mandar mais pelo WhatsApp").
+     Fonte única: site/ no repositório do jogo; publicada no GitHub Pages do repositório de versões por
+     ferramentas/publicar-site.js. Os botões perguntam ao GitHub qual é a versão mais nova (lançamento "latest"),
+     então nunca é preciso trocar link a cada versão. Nada vem de fora além disso: fonte e imagens moram aqui. -->
+<style>
+  @font-face { font-family: 'Pixelify Sans'; src: url('fontes/PixelifySans.ttf') format('truetype'); font-weight: 400 700; font-display: swap; }
+  :root {
+    --mar-noite: #0d1b2a; --mar: #16324a; --mar-claro: #23506f;
+    --papel: #f1e3c4; --papel-escuro: #e2cfa4; --tinta: #3b2a1a; --tinta-suave: #6b5236;
+    --ouro: #e3b341; --borda: #1b1209; --claro: #f4ead2;
+    --fonte: 'Pixelify Sans', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; }
+  html { font-variant-ligatures: none; }
+  body { margin: 0; background: var(--mar-noite); color: var(--claro); font-family: var(--fonte); font-size: 17px; line-height: 1.5; }
+  a { color: var(--ouro); }
+  .faixa { background: linear-gradient(var(--mar-noite), var(--mar)); padding: 40px 16px 32px; text-align: center; }
+  h1 { margin: 0; font-size: clamp(40px, 9vw, 72px); color: var(--ouro); letter-spacing: 1px; text-shadow: 4px 4px 0 var(--borda); line-height: 1.05; }
+  .frase { margin: 10px 0 0; color: var(--claro); font-size: 18px; }
+  main { max-width: 860px; margin: 0 auto; padding: 0 16px 48px; }
+  .captura { display: block; width: 100%; height: auto; border: 4px solid var(--borda); box-shadow: 0 0 0 4px var(--mar-claro); image-rendering: pixelated; margin: 24px 0; }
+  .botoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 8px 0 6px; }
+  .btn { display: flex; flex-direction: column; gap: 2px; padding: 16px 18px; border: 3px solid var(--borda); box-shadow: 4px 4px 0 var(--borda);
+    text-decoration: none; color: var(--tinta); background: var(--papel); }
+  .btn b { font-size: 22px; }
+  .btn span { font-size: 15px; color: var(--tinta-suave); }
+  .btn.principal { background: var(--ouro); }
+  .btn.principal span { color: var(--tinta); }
+  .btn:hover, .btn:focus-visible { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--borda); outline: none; }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--borda); }
+  .versao { margin: 10px 0 28px; font-size: 15px; color: #b9c7d4; min-height: 1.5em; }
+  .cartao { background: var(--papel); color: var(--tinta); border: 3px solid var(--borda); padding: 18px 20px; margin: 18px 0; }
+  .cartao h2 { margin: 0 0 8px; font-size: 22px; }
+  .cartao p { margin: 6px 0; }
+  .cartao a { color: #7a4a10; }
+  ol { margin: 8px 0; padding-left: 24px; }
+  ol li { margin: 6px 0; }
+  .tecla { display: inline-block; padding: 0 6px; background: var(--papel-escuro); border: 2px solid var(--tinta-suave); font-size: 15px; }
+  .duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .duas .cartao { margin: 0; }
+  footer { text-align: center; font-size: 14px; color: #8fa3b6; padding: 24px 16px 40px; }
+</style>
+</head>
+<body>
+<header class="faixa">
+  <h1>Beyond the Fog</h1>
+  <p class="frase">Uma saga das grandes navegações, que segue navegando enquanto você vive.</p>
+</header>
+<main>
+  <div class="botoes" style="margin-top: 28px">
+    <a class="btn principal" id="baixar-instalador" href="https://github.com/LucasCarvalho1671/beyond-the-fog-versoes/releases/latest">
+      <b>Baixar o instalador</b><span id="info-instalador">Para Windows 10 e 11 · recomendado</span></a>
+    <a class="btn" id="baixar-portatil" href="https://github.com/LucasCarvalho1671/beyond-the-fog-versoes/releases/latest">
+      <b>Baixar o portátil</b><span id="info-portatil">Um arquivo só, sem instalar</span></a>
+  </div>
+  <p class="versao" id="versao">Procurando a versão mais nova…</p>
+
+  <img class="captura" src="img/porto.png" width="1000" height="760" alt="O porto de Lisboa no jogo: a esquadra ancorada e o painel para preparar a próxima viagem.">
+
+  <div class="cartao">
+    <h2>O Windows mostrou um aviso azul?</h2>
+    <p>É normal: o jogo ainda não tem a assinatura digital paga que o Windows reconhece. Para abrir:</p>
+    <ol>
+      <li>Clique em <span class="tecla">Mais informações</span>.</li>
+      <li>Clique em <span class="tecla">Executar assim mesmo</span>.</li>
+    </ol>
+    <p>Isso só aparece na primeira vez. Depois de instalado, o jogo se atualiza sozinho.</p>
+  </div>
+
+  <div class="duas">
+    <div class="cartao">
+      <h2>Instalador ou portátil?</h2>
+      <p><b>Instalador:</b> cria o atalho na área de trabalho e no menu Iniciar. É o melhor para a maioria.</p>
+      <p><b>Portátil:</b> um arquivo que abre direto, sem instalar. Bom para levar num pendrive.</p>
+    </div>
+    <div class="cartao">
+      <h2>Já jogava?</h2>
+      <p>Pode instalar por cima. O seu jogo salvo fica guardado e continua de onde parou.</p>
+      <p>Quem já tem o jogo não precisa voltar aqui: as versões novas chegam sozinhas, com o aviso "Reiniciar agora".</p>
+    </div>
+  </div>
+
+  <img class="captura" src="img/titulo.png" width="1280" height="800" alt="Tela de título do jogo: uma caravela no mar, diante de Lisboa.">
+</main>
+<footer>Beyond the Fog · em construção · <a href="https://github.com/LucasCarvalho1671/beyond-the-fog-versoes/releases">todas as versões</a></footer>
+
+<script>
+// Os botões apontam para o instalador mais novo: o lançamento mais recente (não de ensaio) que TEM o instalador. Uma
+// versão que muda só o jogo não leva instalador (quem já tem o jogo recebe sozinho); aí vale o instalador da anterior,
+// que se atualiza ao abrir. Sem resposta do GitHub, ficam no link da página de lançamentos, que também serve.
+(function () {
+  var repo = 'LucasCarvalho1671/beyond-the-fog-versoes';
+  var mb = function (n) { return Math.round(n / 1048576) + ' MB'; };
+  var texto = function (id, t) { document.getElementById(id).textContent = t; };
+  fetch('https://api.github.com/repos/' + repo + '/releases?per_page=30', { headers: { Accept: 'application/vnd.github+json' } })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (lista) {
+      var tem = function (l) { return (l.assets || []).some(function (a) { return /^BeyondTheFog-Instalador-.*\.exe$/.test(a.name); }); };
+      var l = lista.filter(function (x) { return !x.prerelease && !x.draft && tem(x); })[0];
+      if (!l) throw new Error('sem instalador publicado');
+      var achar = function (re) { return (l.assets || []).filter(function (a) { return re.test(a.name); })[0]; };
+      var inst = achar(/^BeyondTheFog-Instalador-.*\.exe$/), port = achar(/^BeyondTheFog-Portatil-.*\.exe$/);
+      if (inst) { document.getElementById('baixar-instalador').href = inst.browser_download_url; texto('info-instalador', 'Para Windows 10 e 11 · ' + mb(inst.size) + ' · recomendado'); }
+      if (port) { document.getElementById('baixar-portatil').href = port.browser_download_url; texto('info-portatil', 'Um arquivo só, sem instalar · ' + mb(port.size)); }
+      var data = new Date(l.published_at).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+      texto('versao', (inst || port) ? 'Versão ' + String(l.tag_name).replace(/^v/, '') + ', de ' + data + '.' : 'A versão mais nova está na página de lançamentos.');
+    })
+    .catch(function () { texto('versao', 'Os botões levam à página de lançamentos: lá estão os arquivos da versão mais nova.'); });
+})();
+</script>
+</body>
+</html>
